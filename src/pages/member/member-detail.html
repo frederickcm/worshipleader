@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Members Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input  [(ngModel)]="item.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Servicio</ion-label>
+        <ion-input  [(ngModel)]="item.service"></ion-input>
+      </ion-item>
+
+
+    <button *ngIf="item && item.key else elseBlock" ion-button round (click)="updateMember(item)">Modificar</button>
+    <ng-template #elseBlock>
+      <button ion-button round (click)="addMember(item)">Agregar</button>
+    </ng-template>
+
+
+</ion-list>
+</ion-content>
