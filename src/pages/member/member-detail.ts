@@ -13,7 +13,7 @@ import { MemberPage } from './member';
 export class MemberDetailPage {
 
   membersRef: AngularFireList<any>;
-  item: {name: 'string', service: string};
+  item: {name: string, service: string};
 
   constructor(
     public navCtrl: NavController,
