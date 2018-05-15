@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MemberPage } from '../pages/member/member';
 import { MemberDetailPage } from '../pages/member/member-detail';
+import { ServicePage } from '../pages/service/service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,6 +33,7 @@ apiKey: "AIzaSyBD30rDf8OkFh4tgZM5JKKD8akuHLmR3a0",
     ListPage,
     MemberPage,
     MemberDetailPage,
+    ServicePage,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ apiKey: "AIzaSyBD30rDf8OkFh4tgZM5JKKD8akuHLmR3a0",
     HomePage,
     ListPage,
     MemberPage,
-    MemberDetailPage
+    MemberDetailPage,
+    ServicePage
   ],
   providers: [
     StatusBar,

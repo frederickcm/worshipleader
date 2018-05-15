@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, AlertController } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
 import { NavController, NavParams } from 'ionic-angular';
 import { MemberPage } from './member';
 
