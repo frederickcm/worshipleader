@@ -10,21 +10,24 @@
 <ion-content>
 <ion-list>
   
-      <ion-item>
-        <ion-label>Nombre</ion-label>
-        <ion-input  [(ngModel)]="item.name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Servicio</ion-label>
-        <ion-input  [(ngModel)]="item.service"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input  [(ngModel)]="item.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Servicio</ion-label>
+      <ion-select [(ngModel)]="serviceSelected" multiple="true">
+        <ion-option *ngFor='let service of services | async' [value]="name">{{service.name}}</ion-option>
+      </ion-select>
+    </ion-item>
 
 
-    <button *ngIf="item && item.key else elseBlock" ion-button round (click)="updateMember(item)">Modificar</button>
+    <button *ngIf="item && item.key else elseBlock " ion-button round (click)="updateMember(item)">Modificar</button>
     <ng-template #elseBlock>
       <button ion-button round (click)="addMember(item)">Agregar</button>
     </ng-template>
-
+    
 
 </ion-list>
 </ion-content>

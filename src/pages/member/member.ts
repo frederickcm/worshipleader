@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-
 import { MemberDetailPage } from './member-detail';
 
 @IonicPage()
@@ -24,7 +23,9 @@ export class MemberPage {
     this.members = this.membersRef.snapshotChanges()
     .map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-    });
+    }); 
+
+
   }
 /*
   createMember(){

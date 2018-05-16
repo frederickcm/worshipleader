@@ -14,6 +14,10 @@ export class MemberDetailPage {
   membersRef: AngularFireList<any>;
   item: {name: string, service: string};
 
+  serviceRef: AngularFireList<any>;
+  services: Observable<any[]>;
+  serviceSelected: {name: string};
+
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -24,6 +28,14 @@ export class MemberDetailPage {
   	this.membersRef = this.database.list('members');
     this.item = navParams.get('item');
     if(typeof this.item =='undefined'){this.item ={name: '', service: ''};}     
+
+    this.serviceRef = this.database.list('services');
+    this.services = this.serviceRef.snapshotChanges()
+    .map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
+
+
   }
 
 
