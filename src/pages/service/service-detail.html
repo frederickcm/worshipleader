@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Services Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input  [(ngModel)]="item.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Event date</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="item.begindate"></ion-datetime>
+    </ion-item>
+
+
+<!--
+    <ion-list reorder="true">
+      <ion-list-header>Songs</ion-list-header>
+      <ion-item *ngFor="let song of item.songs">{{ song.name }}</ion-item>
+    </ion-list>
+<ion-list>
+  <ion-list-header>Header</ion-list-header>
+  <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+    <ion-item *ngFor="let item of items">{{ item }}</ion-item>
+  </ion-item-group>
+</ion-list>
+  -->
+
+
+<ion-list >
+  <ion-list-header>Songs of service</ion-list-header>
+  <ion-item-group reorder="true" >
+          <ion-item >Cantaré a Señor</ion-item>
+          <ion-item >Con mi Dios</ion-item>
+          <ion-item >Te adoro</ion-item>
+          <ion-item >Al que está sentado</ion-item>
+          <ion-item >Adoraré</ion-item>
+          <ion-item >Te exaltamos</ion-item>
+  </ion-item-group>
+</ion-list>
+
+
+    <button *ngIf="item && item.key else elseBlock " ion-button round (click)="updateService(item)">Modificar</button>
+    <ng-template #elseBlock>
+      <button ion-button round (click)="addService(item)">Agregar</button>
+    </ng-template>
+    
+
+</ion-list>
+</ion-content>

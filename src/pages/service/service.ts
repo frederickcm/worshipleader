@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
- 
+ import { ServiceDetailPage } from './service-detail';
 
 @IonicPage()
 @Component({
@@ -19,7 +19,7 @@ export class ServicePage {
     public alertCtrl: AlertController,
     public database: AngularFireDatabase
   ) {
-    this.servicesRef = this.database.list('services');
+    this.servicesRef = this.database.list('service');
     this.services = this.servicesRef.snapshotChanges()
     .map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
@@ -27,35 +27,16 @@ export class ServicePage {
   }
  
   addNewService(){
-    let newServiceModal = this.alertCtrl.create({
-      title: 'Agregar Servicio',
-      message: "Favor completar la información",
-      inputs: [
-        {
-          title: 'Nombre',
-          placeholder: 'Title'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cerrar',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Guardar',
-          handler: data => {
-            this.servicesRef.push({
-              name: data[0]
-            });
-          }
-        }
-      ]
-    });
-    newServiceModal.present( newServiceModal );
+    this.navCtrl.push(ServiceDetailPage);
   } 
  
+   viewService(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(ServiceDetailPage, {
+      item: item
+    });
+  }
+
 
   removeService( service ){ 
     this.servicesRef.remove( service.key );

@@ -3,30 +3,20 @@ import { IonicPage, AlertController } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
-import { MemberPage } from './member';
+import { ServiceDetailPage } from './service-detail';
+import { ServicePage } from './service';
 
 @IonicPage()
 @Component({
-  selector: 'page-member-detail',
-  templateUrl: 'member-detail.html'
+  selector: 'page-service-detail',
+  templateUrl: 'service-detail.html'
 })
-export class MemberDetailPage {
+export class ServiceDetailPage {
 
-  membersRef: AngularFireList<any>;
+  serviceRef: AngularFireList<any>;
 
-  
-  talentsRef: AngularFireList<any>;
-
-
-  talentsFB: Observable<any[]>;
-
-
-  talent: {id: number, name: string};
-
-
-  item: {name: string};
-
-
+  item: {name: string, begindate: date};
+ 
 
   constructor(
     public navCtrl: NavController,
@@ -35,27 +25,20 @@ export class MemberDetailPage {
     public navParams: NavParams
   ) {
   	
-  	this.membersRef = this.database.list('members');
-    this.talentsRef = this.database.list('talent');
+  	this.serviceRef = this.database.list('service');
 
     this.item = navParams.get('item');
 
-
-    this.talentsFB = this.talentsRef.snapshotChanges()
-    .map(changes => {
-      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-    }); 
-
     if(typeof this.item =='undefined'){
-       this.item ={name: '', talents:new Array()};
+       this.item ={name: '',begindate: new Date().toISOString()};
       }
   }
 
 
-  addMember(member){
-		this.membersRef.push({
-      name: member.name,
-      talents: member.talents
+  addService(service){
+		this.serviceRef.push({
+      name: service.name,
+      begindate: service.begindate
       }
 	  );
 
@@ -68,14 +51,14 @@ export class MemberDetailPage {
 
     alert.present();
 
-	this.navCtrl.push(MemberPage);
+	this.navCtrl.push(ServicePage);
   
   }
 
-  updateMember( member ){
-    this.membersRef.update( member.key,{
-      name: member.name,
-      talents: member.talents
+  updateService( service ){
+    this.serviceRef.update( service.key,{
+      name: service.name,
+      begindate: service.begindate
     });
 
  	const alert = this.alertCtrl.create({
@@ -86,7 +69,7 @@ export class MemberDetailPage {
 
     alert.present();
 
-	this.navCtrl.push(MemberPage);
+	this.navCtrl.push(ServicePage);
 
   }
 

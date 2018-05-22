@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Song Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input  [(ngModel)]="item.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Detail</ion-label>
+      <ion-textarea  [(ngModel)]="item.detail" placeholder="Enter a detail"></ion-textarea>
+    </ion-item>
+
+    <button *ngIf="item && item.key else elseBlock " ion-button round (click)="updateSong(item)">Modificar</button>
+    <ng-template #elseBlock>
+      <button ion-button round (click)="addSong(item)">Agregar</button>
+    </ng-template>
+    
+
+</ion-list>
+</ion-content>

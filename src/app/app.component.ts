@@ -7,7 +7,11 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MemberPage } from '../pages/member/member';
 import { MemberDetailPage } from '../pages/member/member-detail';
+import { SongPage } from '../pages/song/song';
+import { SongDetailPage } from '../pages/song/song-detail';
 import { ServicePage } from '../pages/service/service';
+import { ServiceDetailPage } from '../pages/service/service-detail';
+import { TalentPage } from '../pages/talent/talent';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +19,7 @@ import { ServicePage } from '../pages/service/service';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ServicePage;
+  rootPage: any = ServiceDetailPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -27,7 +31,9 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Service', component: ServicePage },
-      { title: 'Member', component: MemberPage }
+      { title: 'Song', component: SongPage },
+      { title: 'Member', component: MemberPage },
+      { title: 'Talent', component: TalentPage }
     ];
 
   }

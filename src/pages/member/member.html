@@ -16,8 +16,7 @@
   <ion-list>
     <ion-item-sliding *ngFor='let member of members | async'>
       <ion-item>
-        <ion-label>{{ member.name }}</ion-label>
-        <ion-checkbox (click)="viewMember($event,member)"></ion-checkbox>
+        <ion-label (click)="viewMember($event,member)">{{ member.name }}</ion-label>
       </ion-item>
        <ion-item-options>
         <button ion-button color="danger" (click)="removeMember( member )">

@@ -11,7 +11,11 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MemberPage } from '../pages/member/member';
 import { MemberDetailPage } from '../pages/member/member-detail';
+import { SongPage } from '../pages/song/song';
+import { SongDetailPage } from '../pages/song/song-detail';
 import { ServicePage } from '../pages/service/service';
+import { ServiceDetailPage } from '../pages/service/service-detail';
+import { TalentPage } from '../pages/talent/talent';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +37,11 @@ apiKey: "AIzaSyBD30rDf8OkFh4tgZM5JKKD8akuHLmR3a0",
     ListPage,
     MemberPage,
     MemberDetailPage,
+    SongPage,
+    SongDetailPage,
     ServicePage,
+    ServiceDetailPage,
+    TalentPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,11 @@ apiKey: "AIzaSyBD30rDf8OkFh4tgZM5JKKD8akuHLmR3a0",
     ListPage,
     MemberPage,
     MemberDetailPage,
-    ServicePage
+    SongPage,
+    SongDetailPage,
+    ServicePage,
+    ServiceDetailPage,
+    TalentPage
   ],
   providers: [
     StatusBar,
