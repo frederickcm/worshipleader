@@ -13,6 +13,7 @@ import { MemberPage } from '../pages/member/member';
 import { MemberDetailPage } from '../pages/member/member-detail';
 import { SongPage } from '../pages/song/song';
 import { SongDetailPage } from '../pages/song/song-detail';
+import { SongListPage } from '../pages/service/songList';
 import { ServicePage } from '../pages/service/service';
 import { ServiceDetailPage } from '../pages/service/service-detail';
 import { TalentPage } from '../pages/talent/talent';
@@ -39,6 +40,7 @@ apiKey: "AIzaSyBD30rDf8OkFh4tgZM5JKKD8akuHLmR3a0",
     MemberDetailPage,
     SongPage,
     SongDetailPage,
+    SongListPage,
     ServicePage,
     ServiceDetailPage,
     TalentPage
@@ -58,6 +60,7 @@ apiKey: "AIzaSyBD30rDf8OkFh4tgZM5JKKD8akuHLmR3a0",
     MemberDetailPage,
     SongPage,
     SongDetailPage,
+    SongListPage,
     ServicePage,
     ServiceDetailPage,
     TalentPage

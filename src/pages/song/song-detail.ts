@@ -35,8 +35,7 @@ export class SongDetailPage {
 
 
  	const alert = this.alertCtrl.create({
-      title: 'Perfecto!',
-      subTitle: 'Se ha agregado un nuevo miembro!',
+      title: 'Saved!',
       buttons: ['Ok']
     });
 

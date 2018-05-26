@@ -14,6 +14,10 @@ export class SongPage {
   songRef: AngularFireList<any>;
   song: Observable<any[]>;
 
+  mySongList:Observable<any[]>;
+
+  songSearchBar:string;
+
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController,
@@ -25,7 +29,7 @@ export class SongPage {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     }); 
 
-
+    this.mySongList=this.song;
   }
 /*
   createSong(){
@@ -59,6 +63,26 @@ export class SongPage {
     newSongModal.present( newSongModal );
   }*/
 
+
+  toFilterSong(item) {
+    // set q to the value of the searchbar
+    var q = this.songSearchBar;
+
+
+    // if the value is an empty string don't filter the items
+    if (!q) {
+      this.song = this.mySongList;
+      return;
+    }
+
+
+ 
+      this.song = this.mySongList.map(x => {
+             return x.filter(y=>y.name.toLowerCase().indexOf(q.toLowerCase())>-1);
+        })   
+
+  }
+  
   addNewSong() {
     this.navCtrl.push(SongDetailPage);
   }

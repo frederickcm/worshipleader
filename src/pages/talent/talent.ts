@@ -30,7 +30,11 @@ export class TalentPage {
     let newTalentModal = this.alertCtrl.create({
       title: 'Agregar Talento',
       message: "Favor completar la información",
-
+      inputs: [
+      {
+        name: 'name',
+        placeholder: 'Talent'
+      }],
       buttons: [
         {
           text: 'Cerrar',
@@ -40,9 +44,9 @@ export class TalentPage {
         },
         {
           text: 'Guardar',
-          handler: data => {
+          handler: data => {console.log(data);
             this.talentsRef.push({
-              name: data[0]
+              name: data.name
             });
           }
         }

@@ -4,7 +4,7 @@ import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { NavController, NavParams } from 'ionic-angular';
 import { ServicePage } from './service';
 import { SongListPage } from './songList';
-
+ 
 @IonicPage()
 @Component({
   selector: 'page-service-detail',
@@ -73,8 +73,7 @@ export class ServiceDetailPage {
 
 
  	const alert = this.alertCtrl.create({
-      title: 'Perfecto!',
-      subTitle: 'Se ha agregado un nuevo miembro!',
+      title: 'Saved!',
       buttons: ['Ok']
     });
 

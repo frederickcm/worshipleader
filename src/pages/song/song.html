@@ -13,6 +13,14 @@
 </ion-header>
 
 <ion-content>
+
+<ion-searchbar
+  [(ngModel)]="songSearchBar"
+  [showCancelButton]="shouldShowCancel"
+  (ionInput)="toFilterSong($event)"
+  (ionCancel)="toFilterSong($event)">
+</ion-searchbar>
+
   <ion-list>
     <ion-item-sliding *ngFor='let song of song | async'>
       <ion-item>

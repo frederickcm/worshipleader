@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content>
+
+
+
 <ion-list>
   
     <ion-item>
@@ -17,7 +20,7 @@
 
     <ion-item>
       <ion-label>Detail</ion-label>
-      <ion-textarea  [(ngModel)]="item.detail" placeholder="Enter a detail"></ion-textarea>
+      <ion-textarea rows="20" [(ngModel)]="item.detail" placeholder="Enter a detail"></ion-textarea>
     </ion-item>
 
     <button *ngIf="item && item.key else elseBlock " ion-button round (click)="updateSong(item)">Modificar</button>

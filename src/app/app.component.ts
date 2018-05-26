@@ -2,15 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { MemberPage } from '../pages/member/member';
-import { MemberDetailPage } from '../pages/member/member-detail';
-import { SongPage } from '../pages/song/song';
-import { SongDetailPage } from '../pages/song/song-detail';
+import { MemberPage } from '../pages/member/member'; 
+import { SongPage } from '../pages/song/song'; 
 import { ServicePage } from '../pages/service/service';
-import { ServiceDetailPage } from '../pages/service/service-detail';
 import { TalentPage } from '../pages/talent/talent';
 
 @Component({
@@ -19,7 +13,7 @@ import { TalentPage } from '../pages/talent/talent';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ServiceDetailPage;
+  rootPage: any = ServicePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -28,12 +22,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Service', component: ServicePage },
-      { title: 'Song', component: SongPage },
-      { title: 'Member', component: MemberPage },
-      { title: 'Talent', component: TalentPage }
+      { title: 'Services', component: ServicePage },
+      { title: 'Songs', component: SongPage },
+      { title: 'Members', component: MemberPage },
+      { title: 'Talents', component: TalentPage }
     ];
 
   }
