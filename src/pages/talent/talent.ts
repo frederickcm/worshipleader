@@ -30,12 +30,7 @@ export class TalentPage {
     let newTalentModal = this.alertCtrl.create({
       title: 'Agregar Talento',
       message: "Favor completar la información",
-      inputs: [
-        {
-          title: 'Nombre',
-          placeholder: 'Title'
-        },
-      ],
+
       buttons: [
         {
           text: 'Cerrar',

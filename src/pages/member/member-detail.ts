@@ -47,7 +47,7 @@ export class MemberDetailPage {
     }); 
 
     if(typeof this.item =='undefined'){
-       this.item ={name: '', talents:new Array()};
+       this.item ={name: ''};
       }
   }
 
