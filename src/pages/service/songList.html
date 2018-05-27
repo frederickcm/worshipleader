@@ -23,7 +23,7 @@
   <ion-list>
     <ion-item-sliding *ngFor='let song of song | async'>
       <ion-item>
-        <ion-label (click)="setSelectedSong(song)">{{ song.name }}</ion-label>
+        <ion-label (click)="setSelectedSong(song)">{{ song.name }} ({{ song.tune }})</ion-label>
       </ion-item>
     </ion-item-sliding>
   </ion-list>

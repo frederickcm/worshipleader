@@ -96,7 +96,6 @@ export class SongPage {
 
 
   removeSong( song ){
-    console.log( song );
     this.songRef.remove( song.key );
   }
 

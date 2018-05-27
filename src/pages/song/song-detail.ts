@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, AlertController } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { NavController, NavParams } from 'ionic-angular';
-import { SongPage } from './song';
 
 @IonicPage()
 @Component({
@@ -41,7 +40,7 @@ export class SongDetailPage {
 
     alert.present();
 
-	this.navCtrl.push(SongPage);
+	this.navCtrl.pop();
   
   }
 
@@ -59,7 +58,7 @@ export class SongDetailPage {
 
     alert.present();
 
-	this.navCtrl.push(SongPage);
+	this.navCtrl.pop();
 
   }
 

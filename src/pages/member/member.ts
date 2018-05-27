@@ -27,40 +27,11 @@ export class MemberPage {
 
 
   }
-/*
-  createMember(){
-    let newMemberModal = this.alertCtrl.create({
-      title: 'Agregar ministro',
-      message: "Favor completar la información",
-      inputs: [
-        {
-          name: 'Nombre',
-          placeholder: 'Title'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cerrar',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Guardar',
-          handler: data => {
-            this.membersRef.push({
-              title: data.title,
-              done: false
-            });
-          }
-        }
-      ]
-    });
-    newMemberModal.present( newMemberModal );
-  }*/
+  
 
   addNewMember() {
     this.navCtrl.push(MemberDetailPage);
+   
   }
 
   viewMember(event, item) {
@@ -72,7 +43,6 @@ export class MemberPage {
 
 
   removeMember( member ){
-    console.log( member );
     this.membersRef.remove( member.key );
   }
 

@@ -3,7 +3,6 @@ import { IonicPage, AlertController } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
-import { MemberPage } from './member';
 
 @IonicPage()
 @Component({
@@ -67,7 +66,7 @@ export class MemberDetailPage {
 
     alert.present();
 
-	this.navCtrl.push(MemberPage);
+	this.navCtrl.pop();
   
   }
 
@@ -85,7 +84,7 @@ export class MemberDetailPage {
 
     alert.present();
 
-	this.navCtrl.push(MemberPage);
+    this.navCtrl.pop();
 
   }
 

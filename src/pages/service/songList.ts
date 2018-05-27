@@ -13,6 +13,9 @@ export class SongListPage {
   songRef: AngularFireList<any>;
   song: Observable<any[]>;
 
+/*  tunning =['','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','Cm','C#m','Dm','D#m','Em','Fm','F#m','Gm','G#m','Am','A#m','Bm'];
+  selectTune = '';*/
+
   mySongList:Observable<any[]>;
 
   songSearchBar:string;
@@ -60,10 +63,15 @@ export class SongListPage {
 	  }
 
 
- 
-    	this.song = this.mySongList.map(x => {
-             return x.filter(y=>y.name.toLowerCase().indexOf(q.toLowerCase())>-1);
-        })   
+  	this.song = this.mySongList.map(x => {
+      return x.filter(
+                y=> { 
+                      if(y.name.toLowerCase().indexOf(q.toLowerCase())>-1 || (typeof(y.tune) != 'undefined' && y.tune.toLowerCase().indexOf(q.toLowerCase())>-1)   ){
+                        return true;
+                      }  
+                    }
+              );
+    });   
 
 	}
 

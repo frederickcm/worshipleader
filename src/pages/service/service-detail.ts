@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, AlertController,ModalController,Modal } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { NavController, NavParams } from 'ionic-angular';
-import { ServicePage } from './service';
 import { SongListPage } from './songList';
  
 @IonicPage()
@@ -78,9 +77,7 @@ export class ServiceDetailPage {
     });
 
     alert.present();
-
-	this.navCtrl.push(ServicePage);
-  
+this.navCtrl.pop();
   }
 
   updateService( service ){
@@ -98,7 +95,7 @@ export class ServiceDetailPage {
 
     alert.present();
 
-	this.navCtrl.push(ServicePage);
+	this.navCtrl.pop();
 
   }
 
