@@ -8,11 +8,59 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h3>Quick Repertorie</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+<ion-card (click)="openPageService()">
+  <img src="img/nin-live.png"/>
+  <ion-card-content>
+    <ion-card-title>
+      Services
+      </ion-card-title>
+    <p>
+      The most popular industrial group ever, and largely
+      responsible for bringing the music to a mass audience.
+    </p>
+  </ion-card-content>
+</ion-card>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-card (click)="openPageSong()">
+  <img src="img/nin-live.png"/>
+  <ion-card-content>
+    <ion-card-title>
+      Songs
+      </ion-card-title>
+    <p>
+      The most popular industrial group ever, and largely
+      responsible for bringing the music to a mass audience.
+    </p>
+  </ion-card-content>
+</ion-card>
+
+<ion-card (click)="openPageMember()">
+  <img src="img/nin-live.png"/>
+  <ion-card-content>
+    <ion-card-title>
+      Members
+      </ion-card-title>
+    <p>
+      The most popular industrial group ever, and largely
+      responsible for bringing the music to a mass audience.
+    </p>
+  </ion-card-content>
+</ion-card>
+
+
+<ion-card (click)="openPageTalent()">
+  <img src="img/nin-live.png"/>
+  <ion-card-content>
+    <ion-card-title>
+      Talents
+      </ion-card-title>
+    <p>
+      The most popular industrial group ever, and largely
+      responsible for bringing the music to a mass audience.
+    </p>
+  </ion-card-content>
+</ion-card>
+
 </ion-content>
