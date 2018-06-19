@@ -30,10 +30,8 @@
     </ion-item-sliding>
   </ion-list>
 
-   
 
-
-    <ion-list *ngIf="(servicesPast | async)?.length>0"> 
+  <ion-list *ngIf="(servicesPast | async)?.length>0"> 
 
     <ion-item-divider  color="primary">Past Services </ion-item-divider>
     <ion-item-sliding *ngFor='let service of servicesPast | async'>

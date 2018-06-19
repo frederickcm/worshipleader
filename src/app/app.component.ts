@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MemberPage } from '../pages/member/member'; 
 import { SongPage } from '../pages/song/song'; 
 import { ServicePage } from '../pages/service/service';
-import { SongListPage } from '../pages/service/songList';
 import { TalentPage } from '../pages/talent/talent';
 import { HomePage } from '../pages/home/home';
 
@@ -47,5 +46,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  exitApp(){
+     this.platform.exitApp();
   }
 }

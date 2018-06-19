@@ -52,7 +52,15 @@
     </ng-template>
     
 
-</ion-list>
+</ion-list> 
+  <ion-slides> 
+    <ion-slide *ngFor="let item of item.songs">
+      <h1>{{item.name}}</h1>
+      <p>({{item.artist}})</p>
+      <p>{{item.detail}}</p>
+    </ion-slide>
+  </ion-slides>
+
 
 
 </ion-content>
