@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController,LoadingController } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { SongDetailPage } from './song-detail';
@@ -21,8 +21,13 @@ export class SongPage {
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController,
-    public database: AngularFireDatabase
+    public database: AngularFireDatabase,
+    public loadingCtrl: LoadingController
   ) {
+
+    let loading = this.loadingCtrl.create({content: 'Please wait...'});
+    loading.present();
+
     this.songRef = this.database.list('song');
     this.song = this.songRef.snapshotChanges()
     .map(changes => {
@@ -30,6 +35,8 @@ export class SongPage {
     }); 
 
     this.mySongList=this.song;
+
+    loading.dismiss();
   }
 /*
   createSong(){
@@ -80,6 +87,7 @@ export class SongPage {
       this.song = this.mySongList.map(x => {
              return x.filter(y=>y.name.toLowerCase().indexOf(q.toLowerCase())>-1);
         })   
+
 
   }
   
