@@ -29,15 +29,15 @@ export class ServicePage {
 
     this.servicesNext = this.servicesRef.snapshotChanges()
     .map(changes => {
-      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
       
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
 
 
     this.servicesPast =this.servicesNext;
 
 
-    this.servicesNext = this.servicesNext.map(x => {
+    this.servicesNext = this.servicesNext.map(x => {loading.dismiss();
            return x.filter(y=>y.begindate > new Date().toISOString() );
       }); 
 
@@ -52,7 +52,6 @@ export class ServicePage {
     )); 
     
     this.servicesPast = this.servicesPast.map(x => {
-      loading.dismiss();
            return x.filter(y=>y.begindate < new Date().toISOString() );
       });
     this.servicesPast = this.servicesPast.map(things => things.sort(
