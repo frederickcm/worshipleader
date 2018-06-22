@@ -19,6 +19,29 @@
     </ion-item>
 
     <ion-item>
+      <ion-label>Artist</ion-label>
+      <ion-input  [(ngModel)]="item.artist"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tune</ion-label>
+      <ion-select [(ngModel)]="item.tune">
+        <ion-option>A</ion-option>
+        <ion-option>A#</ion-option>
+        <ion-option>B</ion-option>
+        <ion-option>C</ion-option>
+        <ion-option>C#</ion-option>
+        <ion-option>D</ion-option>
+        <ion-option>D#</ion-option>
+        <ion-option>E</ion-option>
+        <ion-option>F</ion-option>
+        <ion-option>F#</ion-option>
+        <ion-option>A#</ion-option>
+        <ion-option>G</ion-option>
+        <ion-option>G#</ion-option>
+      </ion-select>
+    </ion-item> 
+    <ion-item>
       <ion-label>Detail</ion-label>
       <ion-textarea rows="20" [(ngModel)]="item.detail" placeholder="Enter a detail"></ion-textarea>
     </ion-item>
