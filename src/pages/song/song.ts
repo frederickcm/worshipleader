@@ -31,12 +31,11 @@ export class SongPage {
     this.songRef = this.database.list('song');
     this.song = this.songRef.snapshotChanges()
     .map(changes => {
+      loading.dismiss();
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-    }); 
-
+    })
     this.mySongList=this.song;
-
-    loading.dismiss();
+    
   }
 /*
   createSong(){

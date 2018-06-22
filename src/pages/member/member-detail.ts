@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, AlertController } from 'ionic-angular';
+import { IonicPage, AlertController, LoadingController} from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
@@ -31,17 +31,20 @@ export class MemberDetailPage {
     public navCtrl: NavController,
     public alertCtrl: AlertController,
     public database: AngularFireDatabase,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController
   ) {
-  	
+    let loading = this.loadingCtrl.create({content: 'Please wait...'});
+    loading.present();
+
   	this.membersRef = this.database.list('members');
     this.talentsRef = this.database.list('talent');
 
     this.item = navParams.get('item');
 
-
     this.talentsFB = this.talentsRef.snapshotChanges()
     .map(changes => {
+      loading.dismiss();
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     }); 
 

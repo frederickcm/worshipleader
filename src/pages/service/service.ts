@@ -30,6 +30,7 @@ export class ServicePage {
     this.servicesNext = this.servicesRef.snapshotChanges()
     .map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+      
     });
 
 
@@ -51,6 +52,7 @@ export class ServicePage {
     )); 
     
     this.servicesPast = this.servicesPast.map(x => {
+      loading.dismiss();
            return x.filter(y=>y.begindate < new Date().toISOString() );
       });
     this.servicesPast = this.servicesPast.map(things => things.sort(
@@ -63,7 +65,7 @@ export class ServicePage {
         }
     ));
 
-    loading.dismiss();
+    
 
   }
 
