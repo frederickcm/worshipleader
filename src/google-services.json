@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "999549556335",
+    "firebase_url": "https://worshipleader-38619.firebaseio.com",
+    "project_id": "worshipleader-38619",
+    "storage_bucket": "worshipleader-38619.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999549556335:android:37b449a1f878cb74",
+        "android_client_info": {
+          "package_name": "com.fcastro.worshipleader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999549556335-oqusllbgqv122gp07k0hfo2r0nnlkt6f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fcastro.worshipleader",
+            "certificate_hash": "30103acacba834af2458809fb1747b27b4b3624a"
+          }
+        },
+        {
+          "client_id": "999549556335-0udrlf5l56aadudk1pn23bq9gg4j1eab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIbboBk3z80y-3ZD4w1PP4OlDvbh2Smt8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999549556335-0udrlf5l56aadudk1pn23bq9gg4j1eab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

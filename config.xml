@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Worship Sync</name>
+    <name>WorshipLeader</name>
     <description>A United mind</description>
     <author email="frederickcm@gmail.com" href="http://ionicframework.com/">Frederick Castro</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.42.20:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -83,5 +83,7 @@
     <allow-navigation href="http://192.168.1.74:8100" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <allow-navigation href="http://172.20.5.141:8100" />
+    <plugin name="cordova-plugin-googleplus" spec="~5.3.0" />
+    <allow-navigation href="http://192.168.42.20:8100" />
     <engine name="android" spec="7.0.0" />
 </widget>

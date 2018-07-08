@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild,NgZone  } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -7,6 +7,9 @@ import { SongPage } from '../pages/song/song';
 import { ServicePage } from '../pages/service/service';
 import { TalentPage } from '../pages/talent/talent';
 import { HomePage } from '../pages/home/home';
+import { RegisterPage } from '../pages/register/register';
+import { GooglePlus } from '@ionic-native/google-plus';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +21,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public gplus: GooglePlus, public zone: NgZone) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -39,7 +42,22 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+         this.zone.run(() => {
+          this.checkLogin();
+        });
+
     });
+  }
+
+
+  async checkLogin(){
+    try {
+      let status = await this.gplus.trySilentLogin({});
+      console.log(status);
+    } catch (error) {
+      this.rootPage = RegisterPage;
+    }
   }
 
   openPage(page) {
