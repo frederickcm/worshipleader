@@ -31,8 +31,6 @@ export class RegisterPage {
 
   }
 
-  
-
  googleLogin() {
   if (this.platform.is('cordova')) {
     this.nativeGoogleLogin();
@@ -46,12 +44,12 @@ async nativeGoogleLogin(): Promise<void> {
   try {
 
     const gplusUser = await this.gplus.login({
-      'webClientId': '222340753174-rmep3pgnhoobek29iqdhpjsie2l3is6c.apps.googleusercontent.com',
+      'webClientId': '858343029060-91p6kmpvate292h24qa4hjdpuh6bk5gg.apps.googleusercontent.com',
       'offline': true,
       'scopes': 'profile email'
-    })
+    });
 
-    return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+    return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken));
 
   } catch(err) {
     console.log(err)

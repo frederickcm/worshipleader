@@ -29,12 +29,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 export const firebaseConfig = {
-apiKey: "AIzaSyBD30rDf8OkFh4tgZM5JKKD8akuHLmR3a0",
-    authDomain: "worshipleader-38619.firebaseapp.com",
-    databaseURL: "https://worshipleader-38619.firebaseio.com",
-    projectId: "worshipleader-38619",
-    storageBucket: "worshipleader-38619.appspot.com",
-    messagingSenderId: "999549556335"
+   apiKey: "AIzaSyAe2Ma_JY2I-s4Iz0EQAm0u6MeotmvQRpQ",
+    authDomain: "worshipleader-7c45d.firebaseapp.com",
+    databaseURL: "https://worshipleader-7c45d.firebaseio.com",
+    projectId: "worshipleader-7c45d",
+    storageBucket: "worshipleader-7c45d.appspot.com",
+    messagingSenderId: "858343029060"
 };
 
 
