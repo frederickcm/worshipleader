@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><ion-icon name="contacts"></ion-icon> RegisterGoogle </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div *ngIf="(user | async) || {} as user">
+
+  <button ion-button *ngIf="!user.uid" (tap)="googleLogin()">
+    login with Google plus
+  </button> 
+
+    <div ion-button *ngIf="user.uid">
+logado con {{user.uid}}  
+
+  <button (tap)="signOut()">
+    Logout
+  </button>
+
+  </div>
+
+
+
+  
+
+</div>
+
+</ion-content>

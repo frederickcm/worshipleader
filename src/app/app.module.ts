@@ -8,7 +8,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { GooglePlus } from '@ionic-native/google-plus'; // We'll install this in the next section
+//import { GooglePlus } from '@ionic-native/google-plus'; // We'll install this in the next section
 
 
 import { MyApp } from './app.component';
@@ -23,6 +23,7 @@ import { ServicePage } from '../pages/service/service';
 import { ServiceDetailPage } from '../pages/service/service-detail';
 import { TalentPage } from '../pages/talent/talent';
 import { RegisterPage } from '../pages/register/register';
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -51,7 +52,8 @@ export const firebaseConfig = {
     ServicePage,
     ServiceDetailPage,
     TalentPage,
-    RegisterPage
+    RegisterPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -73,11 +75,10 @@ export const firebaseConfig = {
     ServicePage,
     ServiceDetailPage,
     TalentPage,
-    RegisterPage
+    RegisterPage,
+    LoginPage
   ],
   providers: [
-    GooglePlus,
-    GooglePlus,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
