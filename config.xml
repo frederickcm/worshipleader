@@ -83,10 +83,13 @@
     <allow-navigation href="http://192.168.1.74:8100" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <allow-navigation href="http://172.20.5.141:8100" />
-    <plugin name="cordova-plugin-googleplus" spec="~5.3.0" />
+    <plugin name="cordova-plugin-googleplus" spec="~5.3.0">
+        <variable name="WEB_APPLICATION_CLIENT_ID" value="222340753174-rmep3pgnhoobek29iqdhpjsie2l3is6c.apps.googleusercontent.com" />
+    </plugin>
     <allow-navigation href="http://192.168.42.20:8100" />
     <plugin name="cordova-android-play-services-gradle-release" spec="^1.4.4">
         <variable name="PLAY_SERVICES_VERSION" value="11.6.2" />
     </plugin>
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <engine name="android" spec="7.0.0" />
 </widget>
