@@ -1,90 +1,90 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import {AngularFireAuth} from "angularfire2/auth"
-import { HomePage } from '../home/home';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import { GooglePlus } from '@ionic-native/google-plus';
+import { Platform } from 'ionic-angular';
+import * as firebase from 'firebase/app';
+import { HomePage } from '../../pages/home/home';
 
 @IonicPage()
 @Component({
   selector: 'page-register',
-  templateUrl: 'register.html',
+  templateUrl: 'register.html'
 })
-
-
-
 export class RegisterPage {
 
+  text: string;
+  user: Observable<firebase.User>;
  
 
-  @ViewChild(Slides) slides: Slides;
+  constructor(
+    private afAuth: AngularFireAuth, 
+    private gplus: GooglePlus,
+    private platform: Platform,
+    public navCtrl: NavController
+  ) {
+    
+    this.user = this.afAuth.authState; 
 
-  user : {name:string,account:string,password:string}; 
-
-  userTypeSelected: {id:number,description:string};
-  groupTypeSelected:number;
-
-  group:{name:string,id:string};
-
- 
-
-  userTypeList:[any];
-  groupTypeList:[any]; 
-
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth:AngularFireAuth, private toast:ToastController) {
-  	this.user ={account:'',password:'',name:''};
-    this.userTypeList=[{id:1,description:'I am a Leader'},{id:2,description:'I am a Musician'}];
-    this.groupTypeList=[{id:1,description:'New Group'},{id:0,description:'Join a Group'}];
-    this.userTypeSelected = {id:0,description:''};
-    this.groupTypeSelected = 1;
-    this.group ={id:'',name:''};
   }
 
-  async register(user){ 
-    try {
-      let result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password);
-      if(result){
-      	this.navCtrl.setRoot(HomePage);
-      }
-    } catch (error) {
-    	console.log(error.message);
-
-               this.toast.create({
-                message:error.message,
-                duration:3000,
-              }).present();      
-
-      
-
-    }
-
+ googleLogin() {
+  if (this.platform.is('cordova')) {
+    this.nativeGoogleLogin();
+  } else {
+    this.waitingWEB();
+  }
 }
 
 
-  closeRegister(){
-    this.navCtrl.pop();
+async nativeGoogleLogin(): Promise<void> {
+  try {
+
+    const gplusUser = await this.gplus.login({
+      'webClientId': '858343029060-91p6kmpvate292h24qa4hjdpuh6bk5gg.apps.googleusercontent.com',
+      'offline': true,
+      'scopes': 'profile email'
+    });
+
+    return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken));
+
+  } catch(err) {
+    console.log(err)
+  }
+}
+
+async webGoogleLogin(): Promise<void> {
+  try {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return await this.afAuth.auth.signInWithPopup(provider);
+  } catch(err) {
+    console.log(err)
   }
 
-  goNext() {
-
-    this.slides.slideTo(this.slides.getActiveIndex()+1, 500);
-  }
-
-  goBack() {
-    this.slides.slideTo(this.slides.getActiveIndex()-1, 500);
-  }
+} 
 
 
-    ver() {
-        console.log(this.groupTypeSelected);
-    }
+async waitingWEB(): Promise<void> {
+  await this.webGoogleLogin();
+  this.navCtrl.push(HomePage);
+}
+
+async waitingNative(): Promise<void> {
+  await this.nativeGoogleLogin();
+  this.navCtrl.push(HomePage);
+}
+
+
+
+
+signOut() {
+  this.afAuth.auth.signOut();
+}
+
+
 
 
 }

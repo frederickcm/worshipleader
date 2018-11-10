@@ -1,5 +1,4 @@
 import { Component, ViewChild,NgZone  } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -8,8 +7,8 @@ import { SongPage } from '../pages/song/song';
 import { ServicePage } from '../pages/service/service';
 import { TalentPage } from '../pages/talent/talent';
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-//import { GooglePlus } from '@ionic-native/google-plus';
+import { RegisterPage } from '../pages/register/register';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 
 @Component({
@@ -22,7 +21,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public afAuth: AngularFireAuth) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public gplus: GooglePlus, public zone: NgZone) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -44,29 +43,14 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-
-
-        /* this.zone.run(() => {
+         this.zone.run(() => {
           this.checkLogin();
-        });*/
+        });
 
     });
-
-            this.afAuth.authState.subscribe(
-          user => {
-            if (user) {
-              this.rootPage = HomePage;
-            } else {
-              this.rootPage = LoginPage;
-            }
-          },
-          () => {
-            this.rootPage = LoginPage;
-          }
-        );
   }
 
-/*
+
   async checkLogin(){
     try {
       let status = await this.gplus.trySilentLogin({});
@@ -74,7 +58,7 @@ export class MyApp {
     } catch (error) {
       this.rootPage = RegisterPage;
     }
-  }*/
+  }
 
   openPage(page) {
     // Reset the content nav to have just this page
@@ -83,8 +67,6 @@ export class MyApp {
   }
 
   exitApp(){
-    this.afAuth.auth.signOut();
-    //this.afAuth.logout();
-     //this.platform.exitApp();
+     this.platform.exitApp();
   }
 }
