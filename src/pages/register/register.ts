@@ -44,7 +44,7 @@ async nativeGoogleLogin(): Promise<void> {
   try {
 
     const gplusUser = await this.gplus.login({
-      'webClientId': '858343029060-91p6kmpvate292h24qa4hjdpuh6bk5gg.apps.googleusercontent.com',
+      'webClientId': '485202611645-o3sfihe75hogori2iulldl3mjoa0oqao.apps.googleusercontent.com',
       'offline': true,
       'scopes': 'profile email'
     });

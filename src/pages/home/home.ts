@@ -17,7 +17,7 @@ export class HomePage {
   }
 
   ionViewWillLoad(){
-    this.afAuth.authState.subscribe(data => {
+    this.afAuth.authState.subscribe(data => { console.log(data);
       if(data.email && data.uid){
         this.toast.create({
           message:"Welcome to "+this.afAuth.app.name,
