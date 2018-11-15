@@ -3,7 +3,7 @@
     <name>WorshipLeader</name>
     <description>A United mind</description>
     <author email="frederickcm@gmail.com" href="http://ionicframework.com/">Frederick Castro</author>
-    <content original-src="index.html" src="http://192.168.1.73:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -91,6 +91,5 @@
     <plugin name="cordova-android-play-services-gradle-release" spec="^1.4.4">
         <variable name="PLAY_SERVICES_VERSION" value="11.6.2" />
     </plugin>
-    <allow-navigation href="http://192.168.1.73:8100" sessionid="78f09de5" />
     <engine name="android" spec="7.0.0" />
 </widget>
